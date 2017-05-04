@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# simple script to compile the source text script files
+
+OSACOMPILE=/usr/bin/osacompile
+SRC_DIR=src
+APPLESCRIPT_EXT=applescript
+JAVASCRIPT_EXT=javascript
+APPLESCRIPT_LANG=AppleScript
+JAVASCRIPT_LANG=JavaScript
+SCPT_DIR=script
+SCPT_EXT=scpt
+
+# make sure our destination directory exists
+mkdir -p $SCPT_DIR
+
+# compile applescripts
+find $SRC_DIR -iname "*.$APPLESCRIPT_EXT" | while read SRC
+do
+	SCPT=`basename "$SRC" .$APPLESCRIPT_EXT`.$SCPT_EXT
+	echo "Compiling $APPLESCRIPT_LANG $SRC...." >&2
+	$OSACOMPILE -l $APPLESCRIPT_LANG -o "$SCPT_DIR/$SCPT" "$SRC"
+done
+
+# compile javascripts
+find $SRC_DIR -iname "*.$JAVASCRIPT_EXT" | while read SRC
+do
+	SCPT=`basename "$SRC" .$JAVASCRIPT_EXT`.$SCPT_EXT
+	echo "Compiling $JAVASCRIPT_LANG $SRC...." >&2
+	$OSACOMPILE -l $JAVASCRIPT_LANG -o "$SCPT_DIR/$SCPT" "$SRC"
+done
+
+echo "Done." >&2
