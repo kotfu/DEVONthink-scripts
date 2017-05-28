@@ -8,5 +8,5 @@ DEST="${DEST/#\~/$HOME}"
 
 echo "Installing scripts to $DEST...." >&2
 mkdir -p $DEST
-cp -rvp "script/*" "$DEST"
+cp -rvp script/* "$DEST"
 echo "Done." >&2
