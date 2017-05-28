@@ -19,7 +19,7 @@ To install the scripts, type:
 ## DEVONthink Pro
 **Send with Airmail** - DEVONthink has a "Send via Email" command, which uses Apple Mail. This script sends the selected files via Airmail.
 
-## Outlook
+## Microsoft Outlook
 **Add attachments to DEVONthink** - save the attachements from the current message to the DEVONthink inbox.
 
 **Add message(s) and attachments to DEVONthink** - import selected messages and their attachments into the Inbox in DEVONthink
