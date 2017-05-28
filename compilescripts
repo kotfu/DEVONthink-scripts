@@ -11,23 +11,30 @@ JAVASCRIPT_LANG=JavaScript
 SCPT_DIR=script
 SCPT_EXT=scpt
 
-# make sure our destination directory exists
+# delete the output dir
+rm -rf $SCPT_DIR
+# and then recreate it
 mkdir -p $SCPT_DIR
 
-# compile applescripts
-find $SRC_DIR -iname "*.$APPLESCRIPT_EXT" | while read SRC
+find src -type d -depth 1 -exec basename {} \; | while read APPNAME
 do
-	SCPT=`basename "$SRC" .$APPLESCRIPT_EXT`.$SCPT_EXT
-	echo "Compiling $APPLESCRIPT_LANG $SRC...." >&2
-	$OSACOMPILE -l $APPLESCRIPT_LANG -o "$SCPT_DIR/$SCPT" "$SRC"
-done
+    mkdir -p "$SCPT_DIR/$APPNAME"
 
-# compile javascripts
-find $SRC_DIR -iname "*.$JAVASCRIPT_EXT" | while read SRC
-do
-	SCPT=`basename "$SRC" .$JAVASCRIPT_EXT`.$SCPT_EXT
-	echo "Compiling $JAVASCRIPT_LANG $SRC...." >&2
-	$OSACOMPILE -l $JAVASCRIPT_LANG -o "$SCPT_DIR/$SCPT" "$SRC"
-done
+    # compile applescripts
+    find "$SRC_DIR/$APPNAME" -iname "*.$APPLESCRIPT_EXT" | while read SRC
+    do
+	    SCPT=$(basename "$SRC" .$APPLESCRIPT_EXT).$SCPT_EXT
+	    echo "Compiling $APPLESCRIPT_LANG $SRC...." >&2
+	    $OSACOMPILE -l $APPLESCRIPT_LANG -o "$SCPT_DIR/$APPNAME/$SCPT" "$SRC"
+    done
 
+    # compile javascripts
+    find "$SRC_DIR/$APPNAME" -iname "*.$JAVASCRIPT_EXT" | while read SRC
+    do
+	    SCPT=$(basename "$SRC" .$JAVASCRIPT_EXT).$SCPT_EXT
+        echo "Compiling $JAVASCRIPT_LANG $SRC...." >&2
+	    $OSACOMPILE -l $JAVASCRIPT_LANG -o "$SCPT_DIR/$APPNAME/$SCPT" "$SRC"
+    done
+done
 echo "Done." >&2
+

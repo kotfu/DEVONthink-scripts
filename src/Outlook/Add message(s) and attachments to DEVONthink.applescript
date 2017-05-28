@@ -3,6 +3,8 @@
 -- Created by Christian Grunenberg on Mon Mar 05 2012.
 -- Copyright (c) 2012-2015. All rights reserved.
 
+-- TODO this script breaks if the Outlook appointment reminder window is open
+
 -- this string is used when the message subject is empty
 property pNoSubjectString : "(no subject)"
 

@@ -2,12 +2,11 @@
 #
 # install the compiled scripts
 
-DEST="~/Library/Scripts/Applications/Microsoft Outlook/"
-# this bit of magic does parameter expansion in a variable
+DEST="~/Library/Scripts/Applications/"
+# this bit of magic does parameter expansion in the DEST variable
 DEST="${DEST/#\~/$HOME}"
 
 echo "Installing scripts to $DEST...." >&2
 mkdir -p $DEST
-cp "script/Add attachments to DEVONthink.scpt" "$DEST"
-cp "script/Add message(s) and attachments to DEVONthink.scpt" "$DEST"
+cp -rvp "script/*" "$DEST"
 echo "Done." >&2

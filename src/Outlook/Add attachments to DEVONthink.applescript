@@ -3,6 +3,8 @@
 -- Created by Christian Grunenberg on Fri May 18 2012.
 -- Copyright (c) 2012-2015. All rights reserved.
 
+-- TODO this script breaks if the Outlook appointment reminder window is open
+
 tell application "Microsoft Outlook"
 	try
 		tell application id "DNtp"

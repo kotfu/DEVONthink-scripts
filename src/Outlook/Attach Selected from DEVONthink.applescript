@@ -1,3 +1,4 @@
+-- Attach the selected files from DEVONthink to the current Outlook draft
 -- Tested with Outlook 15.33, i.e. Outlook 2016 for Mac
 
 -- get the posix paths of the currently selected records in DEVONthink
