@@ -12,3 +12,17 @@ Then go look in the newly created `script` directory, and you will see all the b
 To install the scripts, type:
 
 	$ ./installscripts
+
+## Airmail
+**Attach Selected from DEVONthink** - Attach the selected files from the topmost DEVONthink viewer window to the message you are currently composing
+ 
+## DEVONthink Pro
+**Send with Airmail** - DEVONthink has a "Send via Email" command, which uses Apple Mail. This script sends the selected files via Airmail.
+
+## Outlook
+**Add attachments to DEVONthink** - save the attachements from the current message to the DEVONthink inbox.
+
+**Add message(s) and attachments to DEVONthink** - import selected messages and their attachments into the Inbox in DEVONthink
+
+**Attach Selected from DEVONthink** - Attach the selected files from the topmost DEVONthink viewer window to the message you are currently composing
+
